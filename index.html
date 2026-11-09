@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Viewport" content="widt=device-width, initial-scale=1.0">
+        <title>evagelion</title>
+    </head>
+    <body>
+<¡--pregunta-->
+<div id="step1" class="contairner">
+    <h1 class="alert-text">ALERTA:CODIGO ROJO</h1>
+   <p>> ¿Quieres ver Evangelion conmigo?</p>
+   <div class="bnt-container">
+   <button onclick="nextStep(1,2)">SI, ACEPTO</button>
+    <button id="btn-si" onmouseover="moverBotonSI"()">SI</button
+   </div>
+</div>
+<¡--¿cuando puedes?-->
+<div id="step2" class="bnt-container hidden">
+    <h1>¿cuando?</h1>
+    <p>Selecciona una fecha y hora:</p>
+    <input type="datetime-local" id="fecha">
+    <br><br>
+    <button onclick="guardarFecha()">SIGUIENTE</button>
+</div>
+<¡--¿Plataforma-->
+<div id="slep3" class="container hidden">
+    <h1>¿Donde?</h1>
+    <p>Elije la plataforma</p>
+    <select id="plataforma">
+        <option value="Netflix">Netflix</option>
+        <option value="Crunchyroll">Crunchyroll</option>
+        <option value="Discord">Discord</option>
+        <option value="Rave">Rave</option>
+    </select>
+    <br><br>
+    <<button onclick="finalizarMision()">CONFIRMAR MISION</button>
+</div>
+<¡--PASO FINAL:-->
+</div id="step4" class="container hidden">
+      <h1 style="color:rgb(11, 11, 220);"MISION CONFIRMADA</h1>
+      <p>LA MISION HA SIDO COMPLETADA CON EXITO:</p>
+      <div id="resumen"text-align: left; padding: 10px; borde: 1px dashed #ff5500; margin-bottom: 20px;"></div>
+      <p class="alert-text">JAJAJJAJ te chingaste, ya no hay vuelta atras</p>
+</div>
+    
+</body>
+</html>
