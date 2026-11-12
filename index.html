@@ -1,48 +1,261 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="Viewport" content="widt=device-width, initial-scale=1.0">
-        <title>evagelion</title>
-    </head>
-    <body>
-<¡--pregunta-->
-<div id="step1" class="contairner">
-    <h1 class="alert-text">ALERTA:CODIGO ROJO</h1>
-   <p>> ¿Quieres ver Evangelion conmigo?</p>
-   <div class="bnt-container">
-   <button onclick="nextStep(1,2)">SI, ACEPTO</button>
-    <button id="btn-si" onmouseover="moverBotonSI"()">SI</button
-   </div>
-</div>
-<¡--¿cuando puedes?-->
-<div id="step2" class="bnt-container hidden">
-    <h1>¿cuando?</h1>
-    <p>Selecciona una fecha y hora:</p>
-    <input type="datetime-local" id="fecha">
-    <br><br>
-    <button onclick="guardarFecha()">SIGUIENTE</button>
-</div>
-<¡--¿Plataforma-->
-<div id="slep3" class="container hidden">
-    <h1>¿Donde?</h1>
-    <p>Elije la plataforma</p>
-    <select id="plataforma">
-        <option value="Netflix">Netflix</option>
-        <option value="Crunchyroll">Crunchyroll</option>
-        <option value="Discord">Discord</option>
-        <option value="Rave">Rave</option>
-    </select>
-    <br><br>
-    <<button onclick="finalizarMision()">CONFIRMAR MISION</button>
-</div>
-<¡--PASO FINAL:-->
-</div id="step4" class="container hidden">
-      <h1 style="color:rgb(11, 11, 220);"MISION CONFIRMADA</h1>
-      <p>LA MISION HA SIDO COMPLETADA CON EXITO:</p>
-      <div id="resumen"text-align: left; padding: 10px; borde: 1px dashed #ff5500; margin-bottom: 20px;"></div>
-      <p class="alert-text">JAJAJJAJ te chingaste, ya no hay vuelta atras</p>
-</div>
-    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NERV | Special Invitation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="top-line">
+        <span>NERV ORGANIZATION</span>
+        <span>CLASSIFIED FILE // 01</span>
+    </div>
+
+    <main class="container">
+
+        <!-- PANTALLA 1: INICIO -->
+        <section class="screen active" id="welcome">
+
+            <p class="eyebrow">SPECIAL TRANSMISSION</p>
+
+            <div class="logo">NERV</div>
+
+            <p class="small-text">A MESSAGE HAS BEEN PREPARED FOR YOU</p>
+
+            <h1>Una misión<br>especial te espera.</h1>
+
+            <p class="description">
+                Hemos recibido una solicitud desde el sistema MAGI.
+                Tu presencia es requerida para una operación especial.
+            </p>
+
+            <div class="divider"></div>
+
+            <button class="main-btn" id="startBtn">
+                ABRIR INVITACIÓN
+            </button>
+
+            <p class="footnote">TAP TO INITIALIZE SYSTEM</p>
+
+        </section>
+
+
+        <!-- PANTALLA 2: INVITACIÓN -->
+        <section class="screen" id="invitation">
+
+            <p class="eyebrow">NERV // PRIVATE MESSAGE</p>
+
+            <p class="small-text">DEAR PILOT</p>
+
+            <h1 class="serif">
+                ¿Quieres ver<br>
+                Evangelion conmigo?
+            </h1>
+
+            <p class="description">
+                Se solicita tu compañía para una misión
+                que involucra episodios, conversaciones
+                y probablemente demasiadas horas frente a una pantalla.
+            </p>
+
+            <div class="choice-area" id="choiceArea">
+
+                <button class="yes-btn" id="yesBtn">
+                    Sí, acepto
+                </button>
+
+                <button class="no-btn" id="noBtn">
+                    No
+                </button>
+
+            </div>
+
+            <p class="footnote" id="noMessage">
+                PLEASE SELECT YOUR ANSWER.
+            </p>
+
+        </section>
+
+
+        <!-- PANTALLA 3: FECHA -->
+        <section class="screen" id="schedule">
+
+            <p class="eyebrow">MAGI SYSTEM // SCHEDULING</p>
+
+            <p class="small-text">MISSION PLANNING</p>
+
+            <h1 class="serif">¿Cuándo puedes?</h1>
+
+            <p class="description">
+                Selecciona la fecha y la hora
+                en la que podremos iniciar nuestra operación.
+            </p>
+
+            <div class="field">
+                <label for="date">FECHA DE LA MISIÓN</label>
+                <input type="date" id="date" required>
+            </div>
+
+            <div class="field">
+                <label for="time">HORA DE INICIO</label>
+                <input type="time" id="time" required>
+            </div>
+
+            <p class="footnote">
+                WAITING FOR PILOT AVAILABILITY...
+            </p>
+
+            <button class="main-btn" id="dateBtn">
+                GUARDAR FECHA
+            </button>
+
+        </section>
+
+
+        <!-- PANTALLA 4: PLATAFORMA -->
+        <section class="screen" id="platform">
+
+            <p class="eyebrow">NERV // CONNECTION SYSTEM</p>
+
+            <p class="small-text">SELECT YOUR TERMINAL</p>
+
+            <h1 class="serif">¿Dónde nos vemos?</h1>
+
+            <p class="description">
+                Elige la plataforma para establecer
+                nuestra conexión.
+            </p>
+
+            <div class="platform-list">
+
+                <button class="platform-option" data-platform="Netflix">
+                    NETFLIX
+                </button>
+
+                <button class="platform-option" data-platform="Crunchyroll">
+                    CRUNCHYROLL
+                </button>
+
+                <button class="platform-option" data-platform="Discord">
+                    DISCORD
+                </button>
+
+                <button class="platform-option" data-platform="Rave">
+                    RAVE
+                </button>
+
+                <button class="platform-option" data-platform="Otra">
+                    OTRA PLATAFORMA
+                </button>
+
+            </div>
+
+            <button class="main-btn" id="platformBtn">
+                CONFIRMAR SELECCIÓN
+            </button>
+
+        </section>
+
+
+        <!-- PANTALLA 5: RESUMEN -->
+        <section class="screen" id="confirmation">
+
+            <p class="eyebrow">MAGI SYSTEM // FINAL CHECK</p>
+
+            <p class="small-text">MISSION DATA</p>
+
+            <h1 class="serif">Todo preparado.</h1>
+
+            <div class="summary">
+
+                <div>
+                    <span>OPERACIÓN</span>
+                    <strong>EVANGELION DATE</strong>
+                </div>
+
+                <div>
+                    <span>FECHA</span>
+                    <strong id="summaryDate">--</strong>
+                </div>
+
+                <div>
+                    <span>HORA</span>
+                    <strong id="summaryTime">--</strong>
+                </div>
+
+                <div>
+                    <span>PLATAFORMA</span>
+                    <strong id="summaryPlatform">--</strong>
+                </div>
+
+            </div>
+
+            <p class="description">
+                Una vez confirmada la operación,
+                el sistema procederá a registrar tu misión.
+            </p>
+
+            <button class="main-btn" id="confirmBtn">
+                CONFIRMAR MISIÓN
+            </button>
+
+        </section>
+
+
+        <!-- PANTALLA 6: FINAL -->
+        <section class="screen" id="final">
+
+            <p class="eyebrow">NERV // SYSTEM REPORT</p>
+
+            <div class="success-mark">✓</div>
+
+            <p class="small-text">OPERATION STATUS</p>
+
+            <h1 class="serif">MISSION<br>COMPLETE.</h1>
+
+            <p class="description">
+                Tu misión ha sido completada con éxito.
+                Los preparativos han sido registrados.
+            </p>
+
+            <div class="divider"></div>
+
+            <p class="error-code">ERROR 404</p>
+
+            <h2>ESCAPE NOT FOUND</h2>
+
+            <p class="description">
+                Se ha iniciado un viaje sin retorno.
+                Para tu mala suerte...
+                ya no hay vuelta atrás.
+            </p>
+
+            <p class="footnote">
+                THANK YOU FOR ACCEPTING, PILOT.
+            </p>
+
+            <p class="final-signature">
+                SEE YOU IN THE NEXT EPISODE.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <span>© NERV SPECIAL OPERATIONS</span>
+        <span>ALL RIGHTS RESERVED</span>
+    </footer>
+
+    <button id="musicBtn" class="music-btn">
+        ♫ SOUND: OFF
+    </button>
+
+    <script src="script.js"></script>
+
 </body>
 </html>
